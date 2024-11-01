@@ -8,16 +8,21 @@
 </head>
 <body>
     <div class="flex justify-center items-center h-screen px-4">
-        <div class="w-full max-w-sm p-6 shadow-lg bg-gray-100 rounded-md"> <!-- Changed to max-w-md for better responsiveness -->
+        <div class="w-full max-w-sm p-6 shadow-lg bg-gray-100 rounded-md"> 
 
             <div class="flex justify-center items-center mb-4">
-                <img src="img/recyclo-logo.png" alt="Logo" class="max-w-full h-auto"> <!-- Added responsive image styles -->
+                <img src="img/recyclo-logo.png" alt="Logo" class="max-w-full h-auto"> 
             </div>
 
             <hr class="mt-3">
             <div class="mt-3">
-                <label for="username">Username:</label>
-                <input type="text" id="username" class="border w-full text-base px-2 py-2 focus:outline-none focus:ring-0 focus:border-gray-600 rounded-2xl" placeholder="Enter Username..."/>
+                <label for="username">First name:</label>
+                <input type="text" id="firstname" class="border w-full text-base px-2 py-2 focus:outline-none focus:ring-0 focus:border-gray-600 rounded-2xl" placeholder="Enter first name..."/>
+            </div>
+
+            <div class="mt-3">
+                <label for="username">Last name:</label>
+                <input type="text" id="lastname" class="border w-full text-base px-2 py-2 focus:outline-none focus:ring-0 focus:border-gray-600 rounded-2xl" placeholder="Enter last name..."/>
             </div>
             
             <div class="mt-5"> 
@@ -37,8 +42,6 @@
                     <input type="radio" id="female" name="gender" value="female" class="mr-2">
                     <label for="female" class="mr-4">Female</label>
                     
-                    <input type="radio" id="other" name="gender" value="other" class="mr-2">
-                    <label for="other">Bading</label>
                 </div>
             </div>
             
@@ -54,12 +57,12 @@
             
             <div class="flex justify-center items-center mt-5">
                 <input type="checkbox" id="terms" class="mr-2">
-                <label for="terms" class="text-sm">Accept Terms & Conditions</label> <!-- Added 'for' attribute for accessibility -->
+                <label for="terms" class="text-sm">Accept Terms & Conditions</label> 
             </div>
 
             <div class="mt-5">
                 <a href="seller-sign-up-3.html">
-                <button type="submit" class="border-2 border-yellow-400 bg-yellow-400 py-2 w-full rounded-md">Proceed</button> <!-- Increased padding for better touch targets -->
+                <button type="submit" class="border-2 border-yellow-400 bg-yellow-400 py-2 w-full rounded-md">Proceed</button> 
                 </a>
             </div>
 
