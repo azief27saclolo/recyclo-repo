@@ -2,9 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
-
 body {
     background-color: #FFFFFF; 
     color: #2E3A26; 
@@ -15,9 +14,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #4C6B52; 
+    background-color: #2E3A26; 
     color: white;
 }
+
 
 .title span {
     color: #A5D3B7; 
@@ -34,12 +34,10 @@ body {
     font-size: 24px;
     font-weight: bold;
 }
-
 .menu {
     display: flex;
     gap: 15px; 
 }
-
 .menu-item {
     cursor: pointer;
     font-size: 16px;
@@ -58,7 +56,6 @@ body {
     padding: 10px; 
     background-color: #4C6B52; 
 }
-
 .search-bar {
     padding: 8px;
     border-radius: 20px;
@@ -108,7 +105,6 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .hero-btn:hover {
     background-color: #3B4D3A; 
 }
@@ -125,16 +121,14 @@ body {
     font-size: 20px;
     color: #2E3A26; 
 }
-
 .category-items {
     display: flex;
     gap: 15px; 
     margin-top: 10px;
 }
-
 .category-btn {
     padding: 10px 15px;
-    background-color: #4C6B52; 
+    background-color: #2E3A26; 
     color: white;
     border: none;
     border-radius: 20px; 
@@ -150,12 +144,10 @@ body {
 .section {
     padding: 15px;
 }
-
 .section h3 {
     font-size: 20px;
     color: #2E3A26; 
 }
-
 .shop-card {
     display: flex;
     align-items: center;
@@ -174,11 +166,25 @@ body {
     margin-right: 15px;
     object-fit: cover;
 }
-
 .shop-info h4 {
     font-size: 18px;
     color: #2E3A26; 
 }
+.waste-filter {
+    font-size: 16px;
+    color: #2E3A26;
+    font-weight: lighter;
+    padding: 2px 6px;
+    border: 2px inset #2E3A26;
+    border-radius: 15px;
+    background-color: #ffffff;
+    display: inline-block;
+}
+
+.shop-info .waste-filter + .waste-filter {
+    margin-left: 8px;
+}
+
 
 .star-icon {
     position: absolute; 
@@ -194,7 +200,6 @@ body {
     color: #4D5B45; 
     margin: 2px 0;
 }
-
 .rating {
     color: #2E3A26; 
     font-size: 14px;
@@ -202,7 +207,7 @@ body {
 
 .buy-btn {
     padding: 5px 10px; 
-    background-color: #4C6B52; 
+    background-color: #2E3A26; 
     color: rgb(255, 255, 255); 
     border: 2px solid #4C6B52; 
     border-radius: 15px; 
@@ -213,12 +218,10 @@ body {
     right: 15px; 
     transition: background-color 0.3s, border-color 0.3s; 
 }
-
 .buy-btn:hover {
     background-color: #3B4D3A; 
     border-color: #4C6B52; 
 }
-
 .nav-bar {
     display: flex;
     justify-content: space-around;
@@ -234,7 +237,6 @@ body {
     border-radius: 15px; 
     transition: all 0.3s ease; 
 }
-
 .nav-bar:hover {
     transform: translate(-50%, -5px); 
     box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.2); 
@@ -257,3 +259,22 @@ body {
 .nav-bar .nav-item:hover {
     color: #C2E1D6; 
 }
+
+.nav-bar .nav-item:first-child {
+    color: #4CAF50; 
+}
+.nav-bar .nav-item:first-child i {
+    color: #4CAF50;  
+}
+.nav-bar .nav-item:first-child:hover {
+    color: #A4D9A2; 
+}
+
+
+
+
+
+
+
+
+
