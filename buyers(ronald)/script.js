@@ -2,8 +2,8 @@ function getUrlParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
-document.addEventListener('DOMContentLoaded', () => {
 
+document.addEventListener('DOMContentLoaded', () => {
     const productName = getUrlParam('productName');
     const productLocation = getUrlParam('location');
     const productPrice = getUrlParam('price');
@@ -33,22 +33,28 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSlideIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
         slides[currentSlideIndex].classList.add('active');
     }
+
     setInterval(() => {
         changeSlide(1);
     }, 5000);
+
     const quantityInput = document.getElementById('quantity-input');
-    document.getElementById('minus-btn').addEventListener('click', () => {
-        if (quantityInput.value > 1) {
-            quantityInput.value = parseInt(quantityInput.value) - 1;
+    
+    document.getElementById("minus-btn").addEventListener("click", function() {
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
         }
     });
-    document.getElementById('plus-btn').addEventListener('click', () => {
-        quantityInput.value = parseInt(quantityInput.value) + 1;
-    });
 
+    document.getElementById("plus-btn").addEventListener("click", function() {
+        let currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    });
     document.querySelector('.add-to-cart-btn').addEventListener('click', () => {
         alert(`${productName} added to the cart!`);
     });
+
     document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
     document.querySelector('.next').addEventListener('click', () => changeSlide(1));
 });
