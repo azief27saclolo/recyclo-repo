@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Copilot Features</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-gray-800 fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-white font-bold text-xl">GitHub Copilot</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16 container mx-auto px-4">
+        <div class="py-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-8">Copilot Capabilities</h1>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div id="features" class="space-y-4">
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4">About</h2>
+                    <p class="text-gray-600">Powered by Claude 3.5 Sonnet (Preview) LLM, GitHub Copilot helps you write better code faster.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const features = [
+            "Ask questions about workspace files",
+            "Explain code in active editor",
+            "Make changes to existing code",
+            "Review selected code",
+            "Generate unit tests",
+            "Propose fixes for problems",
+            "Scaffold new projects",
+            "Create Jupyter Notebooks",
+            "Find relevant code",
+            "Fix test failures",
+            "Answer VS Code questions",
+            "Generate search parameters",
+            "Run commands",
+            "Terminal assistance",
+            "Explain terminal output"
+        ];
+
+        const featuresList = document.getElementById('features');
+        
+        features.forEach(feature => {
+            const div = document.createElement('div');
+            div.className = 'bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow cursor-pointer';
+            
+            const content = document.createElement('div');
+            content.className = 'flex items-center';
+            
+            const icon = document.createElement('span');
+            icon.className = 'text-green-500 mr-2';
+            icon.innerHTML = '✓';
+            
+            const text = document.createElement('span');
+            text.className = 'text-gray-700';
+            text.textContent = feature;
+            
+            content.appendChild(icon);
+            content.appendChild(text);
+            div.appendChild(content);
+            
+            div.addEventListener('mouseover', () => {
+                div.classList.add('bg-gray-50');
+            });
+            
+            div.addEventListener('mouseout', () => {
+                div.classList.remove('bg-gray-50');
+            });
+            
+            featuresList.appendChild(div);
+        });
+    </script>
+</body>
+</html>

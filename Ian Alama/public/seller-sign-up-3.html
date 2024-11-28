@@ -15,23 +15,33 @@
             </div>
 
             <hr class="mt-3">
-            <div class="mt-5"> 
 
-            <div class="flex justify-center items-center mb-4">
-                <img src="img/requirements.png" alt="Logo" class="max-w-full h-auto"> 
+            <div class="mt-3 p-3 bg-blue-50 border border-blue-300 rounded-md text-sm text-black">
+                <p><strong>Requirements:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Valid Government-Issued ID</li>
+                    <li>Proof of Address</li>
+                    <li>Business Registration Documents (if applicable)</li>
+                    <li>Business License (if applicable)</li>
+                </ul>
             </div>
 
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <div class="mt-5">
+                    <label for="file-upload" class="cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-yellow-600">
+                        Choose Files
+                    </label>
+                    <input type="file" id="file-upload" name="files[]" class="hidden" multiple>
+                </div>
 
-            <div class="flex justify-center items-center">
-                <h2>File Upload</h2>
-            </div>
-               
-            
-            
-            
-            <div class="mt-5">
-                <button type="submit" class="border-2 border-yellow-400 bg-yellow-400 py-2 w-full rounded-md">Submit</button> 
-            </div>
+                <div id="file-names" class="mt-3 text-sm text-gray-500"></div>
+
+                <div class="mt-5">
+                    <button type="submit" class="border-2 border-yellow-400 bg-yellow-400 py-2 w-full rounded-md hover:bg-yellow-500">
+                        Submit
+                    </button> 
+                </div>
+            </form>
 
             <div class="flex justify-center items-center mt-3">
                 <label class="text-sm">or sign in with</label>
@@ -51,5 +61,21 @@
 
         </div>
     </div>
+
+    <script>
+        const fileUpload = document.getElementById('file-upload');
+        const fileNamesDisplay = document.getElementById('file-names');
+
+        fileUpload.addEventListener('change', (event) => {
+            const files = event.target.files;
+            if (files.length > 0) {
+                fileNamesDisplay.innerHTML = Array.from(files)
+                    .map(file => file.name)
+                    .join('<br>');
+            } else {
+                fileNamesDisplay.textContent = "No files selected";
+            }
+        });
+    </script>
 </body>
 </html>
