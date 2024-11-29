@@ -16,8 +16,8 @@
     <div class="progress-bar-container">
         <div class="progress-bar">
             <span class="progress-step active">Shop</span>
-            <span class="progress-step cart">Cart</span>
-            <span class="progress-step active">Checkout</span>
+            <span class="progress-step active">Cart</span>
+            <span class="progress-step cart">Checkout</span>
         </div>
     </div>
   <div class="container">
@@ -25,39 +25,49 @@
     <div class="summary">
       <div class="summary-item">
         <span>Item Subtotal:</span>
-        <span>$50.00</span>
+        <span>₱50.00</span>
       </div>
       <div class="summary-item">
         <span>Shipping:</span>
-        <span>$5.00</span>
+        <span>₱5.00</span>
       </div>
       <div class="summary-item">
         <span>Tax:</span>
-        <span>$3.00</span>
+        <span>₱3.00</span>
       </div>
       <div class="total">
-        Total: $58.00
+        Total: ₱58.00
       </div>
     </div>
     <form action="/submit-checkout" method="POST">
       <div class="form-group">
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="John Doe" required>
+        <input type="text" id="name" name="name" placeholder="Ronald" required>
       </div>
       <div class="form-group">
         <label for="address">Shipping Address</label>
-        <input type="text" id="address" name="address" placeholder="123 Main St, City, Country" required>
+        <input type="text" id="address" name="address" placeholder="Country" required>
+        <br>
+        <input type="text" id="address" name="address" placeholder="City" required>
+        <br>
+        <input type="text" id="address" name="address" placeholder="Street" required>
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <input type="email" id="email" name="email" placeholder="ronron123@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="zip_code">Zip Code</label>
+        <input type="text" id="zip_code" name="zip_code" placeholder="7000" required>
       </div>
       <div class="form-group">
         <label for="payment-method">Payment Method</label>
         <select id="payment-method" name="payment-method" required>
+          <option value="">Please Select Payment Method</option>
           <option value="credit-card">Credit Card</option>
           <option value="paypal">PayPal</option>
           <option value="cod">Cash on Delivery</option>
+          <option value="cod">Pick Up</option>
         </select>
       </div>
       <button type="submit">Place Order</button>
