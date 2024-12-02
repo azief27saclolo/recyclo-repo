@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="text-gray-800 font-inter">
     
@@ -22,7 +23,7 @@
                 </a>
             </li>
             <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 text-gray-400 hover:bg-green-500 hover:text-gray-100 rounded-md group-[.active]:bg-green-500 group-[.active]:text-white group-[.selected]:bg-green-700 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
+                <a href="#" class="flex items-center py-2 px-4 text-gray-400 hover:bg-green-400 hover:text-gray-100 rounded-md group-[.active]:bg-green-500 group-[.active]:text-white group-[.selected]:bg-green-700 group-[.selected]:text-gray-100 sidebar-dropdown-toggle">
                     <i class="ri-instance-line mr-3 text-lg"></i>
                     <span class="text-sm">Report & Statistics</span>
                     <i class="ri-arrow-right-s-line ml-auto group-[.selected]:rotate-90"></i>
@@ -51,16 +52,11 @@
                     </li>
                 </ul>
             </li>
+            <!-- Add settings link to sidebar -->
             <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 text-gray-400 hover:bg-green-500 hover:text-gray-100 rounded-md group-[.active]:bg-green-500 group-[.active]:text-white group-[.selected]:bg-green-700 group-[.selected]:text-gray-100">
-                    <i class="ri-settings-2-line mr-3 text-lg"></i>
+                <a href="admin-setting.html" class="flex items-center py-2 px-4 text-gray-400 hover:bg-green-700 hover:text-gray-100 rounded-md">
+                    <i class="ri-settings-3-line mr-3 text-lg"></i>
                     <span class="text-sm">Settings</span>
-                </a>
-            </li>
-            <li class="mb-1 group">
-                <a href="#" class="flex items-center py-2 px-4 text-gray-400 hover:bg-green-500 hover:text-gray-100 rounded-md group-[.active]:bg-green-500 group-[.active]:text-white group-[.selected]:bg-green-700 group-[.selected]:text-gray-100">
-                    <i class="ri-settings-2-line mr-3 text-lg"></i>
-                    <span class="text-sm">Verification</span>
                 </a>
             </li>
         </ul>
@@ -322,7 +318,19 @@
                     <div class="flex justify-between mb-4">
                         <div>
                             <div class="flex items-center mb-1">
-                                <div class="text-2xl font-semibold">112</div>
+                                <div class="text-2xl font-semibold">10</div>
+                                <div class="p-1 rounded bg-emerald-500/10 text-black text-[16px] font-semibold leading-none ml-1">Kg</div>
+                            </div>
+                            <div class="text-sm font-medium text-black">Average Kilo Sold</div>
+                        </div>
+                        <a href="#" id="avgKiloDetails" class="text-blue-500 font-medium text-sm hover:text-blue-600">View details</a>
+                    </div>
+                </div>
+                <div class="bg-green-300 rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+                    <div class="flex justify-between mb-4">
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <div class="text-2xl font-semibold">42</div>
                             </div>
                             <div class="text-sm font-medium text-black">Visitors</div>
                         </div>
@@ -340,24 +348,12 @@
                     <div class="flex justify-between mb-4">
                         <div>
                             <div class="flex items-center mb-1">
-                                <div class="text-2xl font-semibold">10</div>
-                                <div class="p-1 rounded bg-emerald-500/10 text-black text-[16px] font-semibold leading-none ml-1">Kg</div>
-                            </div>
-                            <div class="text-sm font-medium text-black">Average Kilo Sold</div>
-                        </div>
-                        <a href="#" class="text-blue-500 font-medium text-sm hover:text-blue-600">View details</a>
-                    </div>
-                </div>
-                <div class="bg-green-300 rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
-                    <div class="flex justify-between mb-4">
-                        <div>
-                            <div class="flex items-center mb-1">
                                 <div class="text-2xl font-semibold">324</div>
                                 <div class="p-1 rounded bg-emerald-500/10 text-black text-[16px] font-semibold leading-none ml-1">Kg</div>
                             </div>
                             <div class="text-sm font-medium text-black">Overall Kilo Sold</div>
                         </div>
-                        <a href="#" class="text-blue-500 font-medium text-sm hover:text-blue-600">View details</a>
+                        <a href="#" class="text-blue-500 font-medium text-sm hover:text-blue-600">view details</a>
                     </div>
                 </div>
                 <div class="bg-green-300 rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
@@ -976,8 +972,111 @@
     </main>
     <!-- end: Main -->
 
+    <!-- Add modal HTML at the end of body -->
+    <div id="avgKiloModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg p-6 w-80 max-w-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold">Average Kilo Sales Details</h3>
+                    <button onclick="closeKiloModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="ri-close-line text-xl"></i>
+                    </button>
+                </div>
+                <div class="w-48 h-48 mx-auto mb-4">
+                    <canvas id="avgKiloPieChart"></canvas>
+                </div>
+                <div class="mt-4 space-y-2 text-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="flex items-center">
+                            <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                            Paper
+                        </span>
+                        <span>4 kg</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="flex items-center">
+                            <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                            Plastic
+                        </span>
+                        <span>3 kg</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="flex items-center">
+                            <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                            Metal
+                        </span>
+                        <span>3 kg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let avgKiloPieChart = null;
+
+    // Initialize pie chart
+    function initPieChart() {
+        if (avgKiloPieChart) {
+            avgKiloPieChart.destroy();
+        }
+        
+        const ctx = document.getElementById('avgKiloPieChart').getContext('2d');
+        avgKiloPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Paper', 'Plastic', 'Metal'],
+                datasets: [{
+                    data: [4, 3, 3],
+                    backgroundColor: [
+                        '#10B981',
+                        '#3B82F6', 
+                        '#F59E0B'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+    }
+
+    // Show modal
+    function showKiloModal() {
+        document.getElementById('avgKiloModal').classList.remove('hidden');
+        initPieChart();
+    }
+
+    // Close modal
+    function closeKiloModal() {
+        document.getElementById('avgKiloModal').classList.add('hidden');
+    }
+
+    // Add click handler to "View details" link
+    document.addEventListener('DOMContentLoaded', function() {
+        const avgKiloLink = document.getElementById('avgKiloDetails');
+        avgKiloLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showKiloModal();
+        });
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('avgKiloModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeKiloModal();
+        }
+    });
+    </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
