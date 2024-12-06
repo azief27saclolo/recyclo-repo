@@ -8,6 +8,14 @@
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+    <!-- Flatpickr CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body class="bg-gray-100">
     
@@ -295,12 +303,6 @@
                         <img src="img/ronald.jpg" alt="" class="w-8 h-8 rounded block object-cover align-middle">
                     </button>
                     <ul class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]">
-                        <li>
-                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Profile</a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Settings</a>
-                        </li>
                         <li>
                             <a href="#" class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50">Logout</a>
                         </li>
@@ -825,6 +827,14 @@
                     <div>
                         <canvas id="order-chart"></canvas>
                     </div>
+                    <div class="mt-5">
+                        <label for="date-picker" class="block text-base mb-2">Select Date:</label>
+                        <input type="text" id="date-picker" class="border w-full text-base px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent rounded-2xl" placeholder="Select date"/>
+                    </div>
+
+                    <div id="order-statistics-graph" class="mt-5">
+                        <!-- Your existing graph code -->
+                    </div>
                 </div>
                 <div class="bg-white border border-gray-100 shadow-md shadow-black/5 p-6 rounded-md">
                     <div class="overflow-x-auto">
@@ -928,7 +938,7 @@
                                     <td class="py-2 px-4 border-b border-b-gray-50">
                                         <div class="flex items-center">
                                             <img src="img/dean.jpg" alt="" class="w-8 h-8 rounded object-cover block">
-                                            <a href="#" class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate">Create landing page</a>
+                                            <a href="#" class="text-gray-600 text-sm font-medium hover:text-blue-500 ml-2 truncate">Biliduc</a>
                                         </div>
                                     </td>
                                     <td class="py-2 px-4 border-b border-b-gray-50">
@@ -1169,6 +1179,27 @@
             closeModal();
         }
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Flatpickr
+        flatpickr("#date-picker", {
+            onChange: function(selectedDates, dateStr, instance) {
+                updateGraph(dateStr);
+            }
+        });
+    });
+
+    function updateGraph(date) {
+        // Fetch new data based on the selected date and update the graph
+        // This is a placeholder function. You need to implement the actual data fetching and graph updating logic.
+        console.log('Selected date: ' + date);
+        // Example: fetch data and update the graph
+        // fetch(`/api/order-statistics?date=${date}`)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         // Update the graph with the new data
+        //     });
+    }
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="script.js"></script>
