@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>User Management</title>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+                <h1 class="text-2xl font-bold">User Management</h1>
+                <a href="admin-dashboard.html" class="text-green-600 hover:text-green-700">
+                    <i class="ri-arrow-left-line text-xl"></i> Back
+                </a>
+            </div>
+
+            <!-- Search Input -->
+            <div class="mb-6">
+                <div class="relative max-w-md">
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        placeholder="Search users..." 
+                        class="w-full p-3 pl-10 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-green-500"
+                    >
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <i class="ri-search-line text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="mb-6">
+                <div class="flex space-x-4">
+                    <button id="tabAdmin" class="px-4 py-2 text-lg font-medium text-gray-700 bg-white rounded-lg hover:bg-gray-200 focus:outline-none">Main-Admin</button>
+                    <button id="tabSubAdmin" class="px-4 py-2 text-lg font-medium text-gray-700 bg-white rounded-lg hover:bg-gray-200 focus:outline-none">Sub-Admin</button>
+                    <button id="tabBuyer" class="px-4 py-2 text-lg font-medium text-gray-700 bg-white rounded-lg hover:bg-gray-200 focus:outline-none">Buyer</button>
+                    <button id="tabSeller" class="px-4 py-2 text-lg font-medium text-gray-700 bg-white rounded-lg hover:bg-gray-200 focus:outline-none">Seller</button>
+                </div>
+            </div>
+
+            <!-- Tables -->
+            <div id="adminTab" class="tab-content">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminTableBody">
+                                <!-- Admins will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="subAdminTab" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subAdminTableBody">
+                                <!-- Sub-Admins will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buyerTab" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="buyerTableBody">
+                                <!-- Buyers will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sellerTab" class="tab-content hidden">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sellerTableBody">
+                                <!-- Sellers will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const users = [
+        { id: 1, name: 'Main Admin', role: 'Admin', status: 'Active', image: 'img/admin-avatar.jpg' },
+        { id: 2, name: 'Jane Smith', role: 'Sub-Admin', status: 'Active', image: 'img/admin-avatar.jpg' },
+        { id: 3, name: 'Mike Johnson', role: 'Sub-Admin', status: 'Active', image: 'img/admin-avatar.jpg' },
+        { id: 4, name: 'Sarah Wilson', role: 'Sub-Admin', status: 'Active', image: 'img/admin-avatar.jpg' },
+        { id: 5, name: 'Alex Brown', role: 'Sub-Admin', status: 'Active', image: 'img/admin-avatar.jpg' },
+        { id: 6, name: 'Emily Davis', role: 'Buyer', status: 'Restricted', image: 'img/admin-avatar.jpg' },
+        { id: 7, name: 'Tom Anderson', role: 'Buyer', status: 'Active', image: 'img/admin-avatar.jpg' },
+        { id: 8, name: 'Lisa Moore', role: 'Seller', status: 'Banned', image: 'img/admin-avatar.jpg' },
+        { id: 9, name: 'John Doe', role: 'Seller', status: 'Active', image: 'img/admin-avatar.jpg' }
+    ];
+
+    function renderUsers() {
+        const adminTableBody = document.getElementById('adminTableBody');
+        const subAdminTableBody = document.getElementById('subAdminTableBody');
+        const buyerTableBody = document.getElementById('buyerTableBody');
+        const sellerTableBody = document.getElementById('sellerTableBody');
+
+        adminTableBody.innerHTML = '';
+        subAdminTableBody.innerHTML = '';
+        buyerTableBody.innerHTML = '';
+        sellerTableBody.innerHTML = '';
+
+        users.forEach(user => {
+            const row = `
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        ${user.id.toString().padStart(1, '0')}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <img src="${user.image}" class="w-8 h-8 rounded-full">
+                            <span class="ml-2">${user.name}</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">${user.role}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 rounded-full text-xs font-semibold
+                            ${user.status === 'Active' ? 'bg-green-100 text-green-800' : 
+                            user.status === 'Restricted' ? 'bg-yellow-100 text-yellow-800' : 
+                            'bg-red-100 text-red-800'}">
+                            ${user.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        ${user.role !== 'Admin' ? ` 
+                            <button onclick="event.stopPropagation(); toggleUserStatus(${user.id}, 'restrict')" 
+                                    class="text-yellow-600 hover:text-yellow-900 mr-2">
+                                ${user.status === 'Restricted' ? 'Unrestrict' : 'Restrict'}
+                            </button>
+                            <button onclick="event.stopPropagation(); toggleUserStatus(${user.id}, 'ban')"
+                                    class="text-red-600 hover:text-red-900">
+                                ${user.status === 'Banned' ? 'Unban' : 'Ban'}
+                            </button>
+                        ` : ''}
+                    </td>
+                </tr>
+            `;
+
+            if (user.role === 'Admin') {
+                adminTableBody.innerHTML += row;
+            } else if (user.role === 'Sub-Admin') {
+                subAdminTableBody.innerHTML += row;
+            } else if (user.role === 'Buyer') {
+                buyerTableBody.innerHTML += row;
+            } else if (user.role === 'Seller') {
+                sellerTableBody.innerHTML += row;
+            }
+        });
+    }
+
+    function toggleUserStatus(id, action) {
+        const user = users.find(u => u.id === id);
+        if (action === 'restrict') {
+            user.status = user.status === 'Restricted' ? 'Active' : 'Restricted';
+        } else if (action === 'ban') {
+            user.status = user.status === 'Banned' ? 'Active' : 'Banned';
+        }
+        renderUsers();
+    }
+
+    // Tab functionality
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+    document.getElementById('tabAdmin').addEventListener('click', () => showTab('adminTab'));
+    document.getElementById('tabSubAdmin').addEventListener('click', () => showTab('subAdminTab'));
+    document.getElementById('tabBuyer').addEventListener('click', () => showTab('buyerTab'));
+    document.getElementById('tabSeller').addEventListener('click', () => showTab('sellerTab'));
+
+    function showTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+        document.getElementById(tabId).classList.remove('hidden');
+    }
+
+    // Initial render
+    renderUsers();
+    showTab('adminTab');  // Show Admin tab by default
+    </script>
+</body>
+</html>

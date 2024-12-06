@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Transactions</title>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <h1 class="text-2xl font-bold">Transactions</h1>
+                <a href="admin-dashboard.html" class="text-green-600 hover:text-green-700 flex items-center">
+                    <i class="ri-arrow-left-line text-xl mr-1" aria-hidden="true"></i>
+                    <span>Back to Dashboard</span>
+                </a>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search transactions..." 
+                        class="w-full p-3 pl-10 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-green-500 shadow-sm"
+                        aria-label="Search transactions"
+                    >
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <i class="ri-search-line text-gray-400" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <!-- Column Tabs -->
+            <div class="bg-white rounded-t-lg shadow-sm border border-gray-200">
+                <nav class="flex px-4" aria-label="Tabs">
+                    <button type="button" onclick="filterTable('all')" class="px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+                        All
+                    </button>
+                    <button type="button" onclick="filterTable('paid')" class="px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+                        Paid
+                    </button>
+                    <button type="button" onclick="filterTable('pending')" class="px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700">
+                        Pending
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Transaction Table -->
+            <div class="bg-white rounded-b-lg shadow-sm border-x border-b border-gray-200">
+                <div class="overflow-x-auto">
+                    <table id="transactionTable" class="w-full">
+                        <thead class="bg-gray-50 border-b border-gray-200">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profile</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Seller</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="all paid">
+                                <td class="px-6 py-4">1</td>
+                                <td class="px-6 py-4">
+                                    <img src="https://picsum.photos/40?random=1" alt="Profile picture" class="w-10 h-10 rounded-full">
+                                </td>
+                                <td class="px-6 py-4">Alice</td>
+                                <td class="px-6 py-4">$100</td>
+                                <td class="px-6 py-4">John's Store</td>
+                                <td class="px-6 py-4 text-green-500">Paid</td>
+                            </tr>
+                            <tr class="all pending">
+                                <td class="px-6 py-4">2</td>
+                                <td class="px-6 py-4">
+                                    <img src="https://picsum.photos/40?random=2" alt="Profile picture" class="w-10 h-10 rounded-full">
+                                </td>
+                                <td class="px-6 py-4">Bob</td>
+                                <td class="px-6 py-4">$50</td>
+                                <td class="px-6 py-4">Bob's Bakery</td>
+                                <td class="px-6 py-4 text-yellow-500">Pending</td>
+                            </tr>
+                            <tr class="all paid">
+                                <td class="px-6 py-4">3</td>
+                                <td class="px-6 py-4">
+                                    <img src="https://picsum.photos/40?random=3" alt="Profile picture" class="w-10 h-10 rounded-full">
+                                </td>
+                                <td class="px-6 py-4">Charlie</td>
+                                <td class="px-6 py-4">$200</td>
+                                <td class="px-6 py-4">Charlie's Coffee</td>
+                                <td class="px-6 py-4 text-green-500">Paid</td>
+                            </tr>
+                            <tr class="all pending">
+                                <td class="px-6 py-4">4</td>
+                                <td class="px-6 py-4">
+                                    <img src="https://picsum.photos/40?random=4" alt="Profile picture" class="w-10 h-10 rounded-full">
+                                </td>
+                                <td class="px-6 py-4">Daisy</td>
+                                <td class="px-6 py-4">$75</td>
+                                <td class="px-6 py-4">Daisy's Deli</td>
+                                <td class="px-6 py-4 text-yellow-500">Pending</td>
+                            </tr>
+                            <tr class="all paid">
+                                <td class="px-6 py-4">5</td>
+                                <td class="px-6 py-4">
+                                    <img src="https://picsum.photos/40?random=5" alt="Profile picture" class="w-10 h-10 rounded-full">
+                                </td>
+                                <td class="px-6 py-4">Eve</td>
+                                <td class="px-6 py-4">$300</td>
+                                <td class="px-6 py-4">Eve's Emporium</td>
+                                <td class="px-6 py-4 text-green-500">Paid</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterTable(status) {
+            const rows = document.querySelectorAll('#transactionTable tbody tr');
+            rows.forEach(row => {
+                if (status === 'all' || row.classList.contains(status)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
