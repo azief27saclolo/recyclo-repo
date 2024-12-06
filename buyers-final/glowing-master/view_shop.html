@@ -452,32 +452,39 @@
                   <ul class="has-scrollbar">
                     <li class="scrollbar-item">
                       <div class="shop-card">
-                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 15px;">
-                          <img src="./assets/images/new1.jpg" width="100" height="100" loading="lazy" alt="New Product 1" class="img-cover">
+                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 5px;">
+                          <img src="./assets/images/wood.jpg" width="100" height="100" loading="lazy" alt="New Product 1" class="img-cover">
                         </div>
                       </div>
                     </li>
                     <li class="scrollbar-item">
                       <div class="shop-card">
-                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 15px;">
-                          <img src="./assets/images/new2.jpg" width="100" height="100" loading="lazy" alt="New Product 2" class="img-cover">
+                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 5px;">
+                          <img src="./assets/images/woods3.jpg" width="100" height="100" loading="lazy" alt="New Product 2" class="img-cover">
                         </div>
                       </div>
                     </li>
                     <li class="scrollbar-item">
                       <div class="shop-card">
-                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 15px;">
-                          <img src="./assets/images/new3.jpg" width="100" height="100" loading="lazy" alt="New Product 3" class="img-cover">
+                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 5px;">
+                          <img src="./assets/images/mets.jpg" width="100" height="100" loading="lazy" alt="New Product 3" class="img-cover">
                         </div>
                       </div>
                     </li>
                     <li class="scrollbar-item">
                       <div class="shop-card">
-                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 15px;">
-                          <img src="./assets/images/new4.jpg" width="100" height="100" loading="lazy" alt="New Product 4" class="img-cover">
+                        <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 5px;">
+                          <img src="./assets/images/br.jpg" width="100" height="100" loading="lazy" alt="New Product 4" class="img-cover">
                         </div>
                       </div>
                     </li>
+                    <li class="scrollbar-item">
+                        <div class="shop-card">
+                          <div class="card-banner img-holder" style="--width: 150; --height: 100; border-radius: 5px;">
+                            <img src="./assets/images/glass.jpg" width="100" height="100" loading="lazy" alt="New Product 4" class="img-cover">
+                          </div>
+                        </div>
+                      </li>
                   </ul>
                 </div>
               </section>
@@ -485,14 +492,19 @@
           </section>
 
           <section class="section feedback" id="feedback" aria-label="feedback" data-section>
-            <div class="container" style="border: 2px solid var(--hoockers-green); padding: 20px; border-radius: var(--radius-3);">
+            <div class="container" style="border: 2px solid var(--hoockers-green); padding: 10px; border-radius: var(--radius-3); position: relative; height: 400px;">
               <div class="title-wrapper">
                 <h2 class="h2 section-title">Feedback & Reviews</h2>
               </div>
-              <ul class="feedback-list">
+          
+              
+          
+              <!-- Feedback List -->
+              <ul class="feedback-list" id="feedback-list" style="overflow-y: auto; max-height: 300px; margin-top: 10px; padding: 10px;">
+                <!-- Feedback Items (4 shown at a time) -->
                 <li class="feedback-item">
                   <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
-                    <img src="./assets/images/f3.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                    <img src="./assets/images/f2.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
                     <div>
                       <h3 class="feedback-title">Saclolo</h3>
                       <p class="feedback-text">Great shop! The products are of high quality and the prices are very reasonable. Highly recommend!</p>
@@ -507,40 +519,103 @@
                   </div>
                 </li>
                 <li class="feedback-item">
-                  <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
-                    <img src="./assets/images/f2.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
-                    <div>
-                      <h3 class="feedback-title">Jameel</h3>
-                      <p class="feedback-text">I love the variety of recyclable materials available. The customer service is excellent!</p>
-                      <div class="feedback-rating" style=" color:yellow; display: flex; flex-direction: row;">
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
+                      <img src="./assets/images/f1.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                      <div>
+                        <h3 class="feedback-title">Saclolo</h3>
+                        <p class="feedback-text">Great shop! The products are of high quality and the prices are very reasonable. Highly recommend!</p>
+                        <div class="feedback-rating" style="color: yellow; display: flex; flex-direction: row;">
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li class="feedback-item">
-                  <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
-                    <img src="./assets/images/f1.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
-                    <div>
-                      <h3 class="feedback-title">Ian Michael</h3>
-                      <p class="feedback-text">Fast delivery and great products. Will definitely order again!</p>
-                      <div class="feedback-rating" style=" color:yellow; display: flex; flex-direction: row;">
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                  </li>
+                  <li class="feedback-item">
+                    <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
+                      <img src="./assets/images/f4.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                      <div>
+                        <h3 class="feedback-title">Saclolo</h3>
+                        <p class="feedback-text">Great shop! The products are of high quality and the prices are very reasonable. Highly recommend!</p>
+                        <div class="feedback-rating" style="color: yellow; display: flex; flex-direction: row;">
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
+                  <li class="feedback-item">
+                    <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
+                      <img src="./assets/images/f3.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                      <div>
+                        <h3 class="feedback-title">Saclolo</h3>
+                        <p class="feedback-text">Great shop! The products are of high quality and the prices are very reasonable. Highly recommend!</p>
+                        <div class="feedback-rating" style="color: yellow; display: flex; flex-direction: row;">
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="feedback-item">
+                    <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
+                      <img src="./assets/images/f3.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                      <div>
+                        <h3 class="feedback-title">Saclolo</h3>
+                        <p class="feedback-text">Great shop! The products are of high quality and the prices are very reasonable. Highly recommend!</p>
+                        <div class="feedback-rating" style="color: yellow; display: flex; flex-direction: row;">
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="feedback-item">
+                    <div class="feedback-card" style="border: 1px solid var(--light-gray); padding: 15px; border-radius: var(--radius-3); display: flex; align-items: center;">
+                      <img src="./assets/images/f3.jpg" alt="User Image" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                      <div>
+                        <h3 class="feedback-title">Saclolo</h3>
+                        <p class="feedback-text">Great shop! The products are of high quality and the prices are very reasonable. Highly recommend!</p>
+                        <div class="feedback-rating" style="color: yellow; display: flex; flex-direction: row;">
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                <!-- Add other feedback items here -->
               </ul>
+    
             </div>
           </section>
+          
+          <script>
+            const feedbackList = document.getElementById('feedback-list');
+          
+            function scrollUp() {
+              feedbackList.scrollBy({ top: -100, behavior: 'smooth' });
+            }
+          
+            function scrollDown() {
+              feedbackList.scrollBy({ top: 100, behavior: 'smooth' });
+            }
+          </script>
+          
     </article>
   </main>
   <footer class="footer" data-section>
